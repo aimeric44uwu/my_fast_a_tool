@@ -11,9 +11,11 @@ SRC		=	flag_four.c \
 			my_str_to_word_array.c \
 			my_revstr.c \
 			get_input_file_content.c \
+			flag_five.c \
 			my_str_is_a_number.c \
 			error_occured.c \
 			sort_my_array.c \
+			flag_five_utils.c \
 			remove_duplicate.c \
 			my_max.c \
 			my_malloc.c \

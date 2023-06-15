@@ -23,6 +23,7 @@ typedef struct my_func_args_s {
     bool flag_two;
     bool flag_three;
     bool flag_four;
+    bool flag_five;
     int nb_kmer;
     bool is_trash;
 } my_func_args_t;
@@ -50,3 +51,7 @@ int flag_four(my_fasta_t *fastastruct);
 int my_arrlen(char **str);
 void remove_duplicates(char **to_treat);
 void sort_my_array(char **to_sort);
+int flag_five(my_fasta_t *fastastruct);
+void parse_between(char *codon, char *content, int start, int end);
+int is_a_start(int start, char *content, int j);
+int is_an_end(int end, char *content, int j);

@@ -93,3 +93,20 @@ expected.stdout = 'AGACGAAGAGATGCTTTGAATGGAATGAA\nATCATGCCTAGACGAAGAGATGCTTTGAA\
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
+
+[[test]]
+name = "execute the bin with command  5 < example.fasta"
+command = "./FASTAtools 5 < tests/example.fasta"
+expected.stdout = 'ATGCTCCC\nATGCCGCTCTACT\nATGCGGCGGCTACGGGGTATTACCGATCAAATCTGC\nATGCTCCC\nATGCAG\nATGCTGCCACGC\nATGCTCCC\nATGTATAATCCGCTATCTACT\nATGCTGCCACTGTGTCTTTC\nATGCGGCGCTACGGGGTATTACCGATCAAATCTGC'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
+[[test]]
+name = "execute the bin with command  5 < example_two.fasta"
+command = "./FASTAtools 5 < tests/example_two.fasta"
+expected.stdout = 'ATGCAGAGT\nATGCTT\nATGGAA'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
