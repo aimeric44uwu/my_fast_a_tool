@@ -17,9 +17,17 @@ EOF
     expected_stdout=$(echo "$test" | grep -oP "(?<=expected\.stdout = ')[^']*")
     expected_stderr=$(echo "$test" | grep -oP '(?<=expected\.stderr = ")[^"]*')
     expected_exit_code=$(echo "$test" | grep -oP '(?<=expected\.exit_code = )[^"]*')
+    input="${cmd% <*}"
+    input_cmd="${cmd#*< }"
+
     # Run the command and compare output and exit code
     echo -n "Running test $name : "
-    output=$($cmd 2>&1)
+    if [[ "$input" == "$cmd" ]]; then
+      output=$($cmd 2>&1)
+    else
+      output=$($input < "$input_cmd" 2>&1)
+    fi
+    
     exit_code=$?
     expected_stdout=$(echo -e "$expected_stdout" | tr '\n' '\n')
     TOTAL=$((TOTAL + 1))

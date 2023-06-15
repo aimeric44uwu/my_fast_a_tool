@@ -15,9 +15,12 @@
 typedef struct my_func_args_s {
     int ac;
     char **av;
+    char *inputfile;
+    char **parsed_file;
     int nb_arguments;
     bool flag_h;
     bool flag_one;
+    bool flag_two;
     bool is_trash;
 } my_func_args_t;
 
@@ -30,3 +33,11 @@ int parse_arg(int ac, char **av, my_func_args_t *args);
 bool my_str_is_num(char *str);
 void init_everything_to_null(my_func_args_t *args);
 int error_wrong_args(void);
+int parse_fasta_file(my_func_args_t *args);
+int exec_flags(my_fasta_t *fastastruct);
+char **parse_fasta_content(char *content);
+char **my_str_to_word_array(char const *str, char const *sep);
+char *new_array(int size);
+char **new_double_array(int size);
+int flag_one(my_fasta_t *fastastruct);
+int flag_two(my_fasta_t *fastastruct);
