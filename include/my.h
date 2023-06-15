@@ -6,3 +6,8 @@
 */
 
 #pragma once
+
+#include <string.h>
+#include <stdio.h>
+
+int print_help(void);

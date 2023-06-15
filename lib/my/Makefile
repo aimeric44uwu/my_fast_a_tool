@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-SRC		=
+SRC		=	print_help.c \
 
 OBJ		=     	$(SRC:.c=.o)
 

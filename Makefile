@@ -17,7 +17,7 @@ LIB			=	-L./lib/my -lmy
 
 INCF		=	include/
 
-FLAGS		=	-I./$(INCF) $(LIB) -W -Wall -Wextra -Werror
+FLAGS		=	-I./$(INCF) $(LIB) -W -Wall -Wextra
 
 all: $(BINNAME)
 
