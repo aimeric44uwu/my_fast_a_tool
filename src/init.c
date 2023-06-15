@@ -14,4 +14,6 @@ void init_everything_to_null(my_func_args_t *args)
     args->nb_arguments = 0;
     args->flag_h = false;
     args->flag_one = false;
+    args->is_trash = false;
+    args->inputfile = NULL;
 }

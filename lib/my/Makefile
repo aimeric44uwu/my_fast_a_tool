@@ -5,9 +5,16 @@
 ## Makefile
 ##
 
-SRC		=	print_help.c \
+SRC		=	flag_two.c \
+			print_help.c \
+			my_str_to_word_array.c \
+			get_input_file_content.c \
 			my_str_is_a_number.c \
 			error_occured.c \
+			my_malloc.c \
+			flag_one.c \
+			parse_fasta_content.c \
+			my_arrlen.c \
 
 OBJ		=     	$(SRC:.c=.o)
 

@@ -9,7 +9,7 @@
 
 bool my_str_is_num(char *str)
 {
-    long long int i = 0;
+    int i = 0;
 
     if (str == NULL)
         return false;

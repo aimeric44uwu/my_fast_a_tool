@@ -26,6 +26,9 @@ static void av_parser(my_func_args_t *args, int i)
     if (strcmp(args->av[i], "1") == 0) {
         args->flag_one = true;
     }
+    if (strcmp(args->av[i], "2") == 0) {
+        args->flag_two = true;
+    }
 }
 
 int parse_arg(int ac, char **av, my_func_args_t *args)
@@ -37,6 +40,12 @@ int parse_arg(int ac, char **av, my_func_args_t *args)
         return error_wrong_args();
     for (int i = 1; i < ac; i++)
         av_parser(args, i);
+    if (args->flag_h == true) {
+        return 0;
+    } else {
+        if (parse_fasta_file(args) != 0)
+            return 84;
+    }
     if (check_for_trashs(args) != 0)
         return error_wrong_args();
     return 0;

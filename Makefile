@@ -8,6 +8,7 @@
 MAINFILE	=	src/main.c			\
 				src/init.c 			\
 				src/parse_arg.c   	\
+				src/exec_flags.c	\
 
 BINNAME		=	FASTAtools
 

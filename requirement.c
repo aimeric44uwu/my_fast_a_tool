@@ -25,10 +25,21 @@ static char my_chrcapitalize(char chr)
     return chr;
 }
 
+static int my_char_is_alpha(char const chr)
+{
+    if ( chr >= 49 && chr <= 57 )
+        return 1;
+    if ( chr >= 65 && chr <= 90 )
+        return 1;
+    if ( chr >= 97 && chr <= 122 )
+        return 1;
+    return 0;
+}
+
 static void parse_my_input(char const *input, char *output, int i)
 {
     if (input[i - 1] != '\0')
-        if (input[i - 1] == ' ' || input[i - 1] == '-' || input[i - 1] == '+')
+        if (my_char_is_alpha(input[i - 1]) != 1 )
             output[i] = my_chrcapitalize(input[i]);
         else
             output[i] = input[i];
