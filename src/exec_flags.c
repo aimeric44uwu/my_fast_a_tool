@@ -19,5 +19,7 @@ int exec_flags(my_fasta_t *fastastruct)
         return flag_four(fastastruct);
     if (fastastruct->args.flag_five == true)
         return flag_five(fastastruct);
+    if (fastastruct->args.flag_six == true)
+        return flag_six(fastastruct);
     return 84;
 }

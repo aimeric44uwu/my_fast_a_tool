@@ -27,6 +27,9 @@ static void av_parser_two(my_func_args_t *args, int i)
     if (strcmp(args->av[i], "5") == 0)
         if (args->av[i - 1] != NULL && strcmp(args->av[i - 1], "4") != 0)
             args->flag_five = true;
+    if (strcmp(args->av[i], "6") == 0)
+        if (args->av[i - 1] != NULL && strcmp(args->av[i - 1], "4") != 0)
+            args->flag_six = true;
 }
 
 static void av_parser(my_func_args_t *args, int i)

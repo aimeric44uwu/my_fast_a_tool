@@ -10,6 +10,7 @@ SRC		=	flag_four.c \
 			print_help.c \
 			my_str_to_word_array.c \
 			my_revstr.c \
+			flag_six.c \
 			get_input_file_content.c \
 			flag_five.c \
 			my_str_is_a_number.c \
@@ -22,6 +23,7 @@ SRC		=	flag_four.c \
 			flag_three.c \
 			flag_one.c \
 			parse_fasta_content.c \
+			every_amino.c \
 			my_arrlen.c \
 
 OBJ		=     	$(SRC:.c=.o)

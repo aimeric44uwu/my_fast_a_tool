@@ -30,7 +30,8 @@ static void parse_in_result(char *content, char *parsed)
 static bool is_a_good_char(char chr)
 {
     if (chr == 'A' || chr == 'T' || chr == 'G' || chr == 'C' || chr == 'a' ||
-        chr == 't' || chr == 'g' || chr == 'c' || chr == '\n')
+        chr == 't' || chr == 'g' || chr == 'c' || chr == '\n' ||
+        chr == 'N' || chr == 'n')
         return true;
     return false;
 }

@@ -17,6 +17,8 @@ void init_everything_to_null(my_func_args_t *args)
     args->flag_two = false;
     args->flag_three = false;
     args->flag_four = false;
+    args->flag_five = false;
+    args->flag_six = false;
     args->is_trash = false;
     args->inputfile = NULL;
     args->nb_kmer = 0;
