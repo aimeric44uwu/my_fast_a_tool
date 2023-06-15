@@ -5,6 +5,8 @@
 ** requirement.c
 */
 
+#include <stdlib.h>
+
 static int my_strlen(char const *str)
 {
     int size = 0;
