@@ -4,7 +4,9 @@ on:
   push:
     branches-ignore:
       - 'ga-ignore-*'
-    
+    paths-ignore:
+      - 'tests/'
+
   pull_request:
       branches-ignore:
           - 'ga-ignore-*'
@@ -83,6 +85,8 @@ jobs:
     needs: [check_coding_style, check_program_compilation, run_tests]
     runs-on: ubuntu-latest
     steps:
+      - name: add .tests/ to .gitignore
+        run:  echo -e "\\ntests/" >> .gitignore
       - name: get mirror
         uses: actions/checkout@v3
         with:
