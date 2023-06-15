@@ -85,8 +85,6 @@ jobs:
     needs: [check_coding_style, check_program_compilation, run_tests]
     runs-on: ubuntu-latest
     steps:
-      - name: add .tests/ to .gitignore
-        run:  echo -e "\\ntests/" >> .gitignore
       - name: get mirror
         uses: actions/checkout@v3
         with:
@@ -96,5 +94,7 @@ jobs:
         with:
           target_repo_url: ${{ env.MIRROR_URL }}
           ssh_private_key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+          ignore_folders: 'tests'
+          ignore_files: '.gitignore'
                     
 

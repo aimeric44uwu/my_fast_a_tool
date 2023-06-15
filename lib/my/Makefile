@@ -6,6 +6,8 @@
 ##
 
 SRC		=	print_help.c \
+			my_str_is_a_number.c \
+			error_occured.c \
 
 OBJ		=     	$(SRC:.c=.o)
 

@@ -9,8 +9,9 @@
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
-        if (strcmp(av[1], "-h") == 0)
-            return print_help();
+    my_fasta_t *fasta = malloc(sizeof(my_fasta_t));
+
+    if (parse_arg(ac, av, &fasta->args) != 0)
+        return (84);
     return (0);
 }

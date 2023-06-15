@@ -1,0 +1,15 @@
+[[test]]
+name = "execute the bin with no args"
+command = "./FASTAtools"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with -h"
+command = "./FASTAtools -h"
+expected.stdout = 'USAGE\n\t./FASTAtools option\n\nDESCRIPTION\n\toption 1: read FASTA from the standard input, write the DNA sequences to the\n\t\tstandard output\n'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
