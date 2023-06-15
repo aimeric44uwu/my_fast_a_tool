@@ -21,6 +21,7 @@ typedef struct my_func_args_s {
     bool flag_h;
     bool flag_one;
     bool flag_two;
+    bool flag_three;
     bool is_trash;
 } my_func_args_t;
 
@@ -41,3 +42,5 @@ char *new_array(int size);
 char **new_double_array(int size);
 int flag_one(my_fasta_t *fastastruct);
 int flag_two(my_fasta_t *fastastruct);
+int flag_three(my_fasta_t *fastastruct);
+char *revstr(char *str1);
