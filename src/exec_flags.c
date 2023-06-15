@@ -15,5 +15,7 @@ int exec_flags(my_fasta_t *fastastruct)
         return flag_two(fastastruct);
     if (fastastruct->args.flag_three == true)
         return flag_three(fastastruct);
+    if (fastastruct->args.flag_four == true && fastastruct->args.nb_kmer > 0)
+        return flag_four(fastastruct);
     return 84;
 }

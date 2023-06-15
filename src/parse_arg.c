@@ -24,11 +24,19 @@ static void av_parser(my_func_args_t *args, int i)
         print_help();
     }
     if (strcmp(args->av[i], "1") == 0)
-        args->flag_one = true;
+        if (args->av[i - 1] != NULL && strcmp(args->av[i - 1], "4") != 0)
+            args->flag_one = true;
     if (strcmp(args->av[i], "2") == 0)
         args->flag_two = true;
     if (strcmp(args->av[i], "3") == 0)
         args->flag_three = true;
+    if (strcmp(args->av[i], "4") == 0) {
+        args->flag_four = true;
+        if (args->av[i + 1] != NULL)
+            args->nb_kmer = atoi(args->av[i + 1]);
+        i += 2;
+        return;
+    }
 }
 
 int parse_arg(int ac, char **av, my_func_args_t *args)

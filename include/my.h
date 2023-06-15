@@ -22,6 +22,8 @@ typedef struct my_func_args_s {
     bool flag_one;
     bool flag_two;
     bool flag_three;
+    bool flag_four;
+    int nb_kmer;
     bool is_trash;
 } my_func_args_t;
 
@@ -44,3 +46,7 @@ int flag_one(my_fasta_t *fastastruct);
 int flag_two(my_fasta_t *fastastruct);
 int flag_three(my_fasta_t *fastastruct);
 char *revstr(char *str1);
+int flag_four(my_fasta_t *fastastruct);
+int my_arrlen(char **str);
+void remove_duplicates(char **to_treat);
+void sort_my_array(char **to_sort);

@@ -63,7 +63,7 @@ expected.exit_code = 0
 [[test]]
 
 [[test]]
-name = "execute the bin with command 3 < example_two.fasta"
+name = "execute the bin with command 3 < example.fasta"
 command = "./FASTAtools 3 < tests/example.fasta"
 expected.stdout = '>at1200347|szg01\nTGAAGGAGCGAGATGATCAGCAGATTTGATCGGTAATACCCCGTAGCCGCCGCATAGCAAGACACAGTGGCAGCATCGAGATTTTAAGTAGAGCGGCATTATACATCAGGGAGCATCAT\n>at1102337|szg02\nATCTTGATCGGTAATACCCCGTACCGCCGCATAGCTAGACGATCAGCGTGGCAGCATCGAGATTTTAAGTGTACTCACTGCATCACATCAGGGAGCATCAT\n>at2430958|szg01\nTGAAGCAAGGCGAGATGATCAGCAGATTTGATCGGTAATACCCCGTAGCGCCGCATAGCTAGAAAGACACAGTGGCAGCATCGAATTTTAAGTAGATAGCGGATTATACATCAGGGAGCATCAT'
 expected.stderr = ""
@@ -74,6 +74,22 @@ expected.exit_code = 0
 name = "execute the bin with command 3 < example.fasta"
 command = "./FASTAtools 3 < tests/example_two.fasta"
 expected.stdout = '>seq1\nACTAACTCTGCATAT\n>seq2\nTTCATTCCATTCAAAGCATCTCTTCGTCTAGGCATGATG'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
+[[test]]
+name = "execute the bin with command 4 1 < example_two.fasta"
+command = "./FASTAtools 4 1 < tests/example_two.fasta"
+expected.stdout = 'A\nC\nG\nT'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
+[[test]]
+name = "execute the bin with command 4 29 < example_two.fasta"
+command = "./FASTAtools 4 29 < tests/example_two.fasta"
+expected.stdout = 'AGACGAAGAGATGCTTTGAATGGAATGAA\nATCATGCCTAGACGAAGAGATGCTTTGAA\nATGCCTAGACGAAGAGATGCTTTGAATGG\nCATCATGCCTAGACGAAGAGATGCTTTGA\nCATGCCTAGACGAAGAGATGCTTTGAATG\nCCTAGACGAAGAGATGCTTTGAATGGAAT\nCTAGACGAAGAGATGCTTTGAATGGAATG\nGCCTAGACGAAGAGATGCTTTGAATGGAA\nTAGACGAAGAGATGCTTTGAATGGAATGA\nTCATGCCTAGACGAAGAGATGCTTTGAAT\nTGCCTAGACGAAGAGATGCTTTGAATGGA'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]

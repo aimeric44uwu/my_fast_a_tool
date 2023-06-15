@@ -5,13 +5,17 @@
 ## Makefile
 ##
 
-SRC		=	flag_two.c \
+SRC		=	flag_four.c \
+			flag_two.c \
 			print_help.c \
 			my_str_to_word_array.c \
 			my_revstr.c \
 			get_input_file_content.c \
 			my_str_is_a_number.c \
 			error_occured.c \
+			sort_my_array.c \
+			remove_duplicate.c \
+			my_max.c \
 			my_malloc.c \
 			flag_three.c \
 			flag_one.c \

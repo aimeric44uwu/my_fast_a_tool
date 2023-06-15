@@ -7,7 +7,7 @@
 
 #include "../../include/my.h"
 
-int my_arrlen( char const **str )
+int my_arrlen(char **str)
 {
     int size = 0;
 
