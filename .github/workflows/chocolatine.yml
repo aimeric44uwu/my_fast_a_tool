@@ -76,12 +76,12 @@ jobs:
           timeout-minutes: 2
         - name : Run make on Makefile
           run: make
+        - name : Run unit tests
+          run: make re_tests
         - name : Run make clean on Makefile
           run: make clean
         - name : Run make test on Makefile
           run: make ftests
-        - name : Run unit tests
-          run: make re_tests
   push_to_mirror:
     name: push to mirror
     needs: [check_coding_style, check_program_compilation, run_tests]
