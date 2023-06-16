@@ -9,7 +9,7 @@
 
 int print_help(void)
 {
-    printf("USAGE\n\t./FASTAtools option\n\nDESCRIPTION");
+    printf("USAGE\n\t./FASTAtools option [k]\n\nDESCRIPTION");
     printf("\n\toption 1: read FASTA from the standard input, write the DNA ");
     printf("sequences to the\n\t\tstandard output\n\toption 2: read FASTA ");
     printf("from the standard input, write the RNA sequences to the\n\t\t");
