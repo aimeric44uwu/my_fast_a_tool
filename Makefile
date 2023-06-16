@@ -68,7 +68,8 @@ clean_tests:
 fclean_tests:
 	@make -C tests/ fclean
 
-re_tests: exec_unit_tests fclean_tests
+re_tests:
+	@make -C tests/ compile_run
 
 all_tests: unit_tests ftests
 

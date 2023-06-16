@@ -59,6 +59,13 @@ Test(every_amino, test_if_every_amino_GIVE)
     cr_assert_eq(strcmp(output, "GIVE"), 0);
 }
 
+Test(every_amino, test_if_every_amino_YOU)
+{
+    char *input = strdup("TATCAGGTG");
+    char *output = every_amino(input);
+    cr_assert_eq(strcmp(output, "YQV"), 0);
+}
+
 Test(every_amino, test_if_every_amino_UP)
 {
     char *input = strdup("GTGCCC");
@@ -160,4 +167,102 @@ Test(complement, test_if_complement_works_hard)
     char *output = revstr(input);
     complement(output);
     cr_assert_eq(strcmp(output, "GTCAN"), 0);
+}
+
+Test(remove_duplicates, test_if_remove_duplicate_work)
+{
+    char **input = malloc(sizeof(char *) * 4);
+    int count = 0;
+
+    for (int i = 0; i < 3; i++)
+        input[i] = malloc(sizeof(char) * 11);
+    input[count++] = strdup("AA");
+    input[count++] = strdup("BB");
+    input[count++] = strdup("CC");
+    input[count++] = strdup("AA");
+    input[count] = NULL;
+    remove_duplicates(input);
+    cr_assert_eq(strcmp(input[0], "AA"), 0);
+    cr_assert_eq(strcmp(input[1], "BB"), 0);
+    cr_assert_eq(strcmp(input[2], "CC"), 0);
+    cr_assert_eq(input[3], NULL);
+}
+
+Test(my_str_to_word_array, tes_if_my_str_to_word_array_works)
+{
+    char *input = strdup("AA BB CC DD");
+    char **output = my_str_to_word_array(input, " ");
+    cr_assert_eq(strcmp(output[0], "AA"), 0);
+    cr_assert_eq(strcmp(output[1], "BB"), 0);
+    cr_assert_eq(strcmp(output[2], "CC"), 0);
+    cr_assert_eq(strcmp(output[3], "DD"), 0);
+}
+
+Test(my_str_is_num, test_if_my_str_is_num_false)
+{
+    char *input = strdup("AA BB CC DD");
+    int output = my_str_is_num(input);
+    cr_assert_eq(output, 0);
+}
+
+Test(my_str_is_num, test_if_my_str_is_num_true)
+{
+    char *input = strdup("1234567890");
+    int output = my_str_is_num(input);
+    cr_assert_eq(output, 1);
+}
+
+Test(my_max, test_if_my_max_works)
+{
+    int one = 12;
+    int two = 13;
+    int output = my_max(one, two);
+    cr_assert_eq(output, 13);
+}
+
+Test(my_arrlen, test_if_my_arr_len_works)
+{
+    char *input = strdup("AA BB CC DD");
+    char **output = my_str_to_word_array(input, " ");
+    int len = my_arrlen(output);
+    cr_assert_eq(len, 4);
+}
+
+Test(get_kmer, test_if_get_kmer_works)
+{
+    char *input = strdup("AAABBBCCDDDE");
+    char **output = my_str_to_word_array(input, " ");
+    char **kmer = get_kmer(output, 3);
+    cr_assert_eq(strcmp(kmer[0], "AAA"), 0);
+    cr_assert_eq(strcmp(kmer[1], "AAB"), 0);
+    cr_assert_eq(strcmp(kmer[2], "ABB"), 0);
+    cr_assert_eq(strcmp(kmer[3], "BBB"), 0);
+    cr_assert_eq(strcmp(kmer[4], "BBC"), 0);
+    cr_assert_eq(strcmp(kmer[5], "BCC"), 0);
+    cr_assert_eq(strcmp(kmer[6], "CCD"), 0);
+    cr_assert_eq(strcmp(kmer[7], "CDD"), 0);
+    cr_assert_eq(strcmp(kmer[8], "DDD"), 0);
+    cr_assert_eq(strcmp(kmer[9], "DDE"), 0);
+    cr_assert_eq(kmer[10], NULL);
+}
+
+Test(get_codon, test_if_get_codon_works)
+{
+    char *input = strdup("ATGTANTATANNGATTAA ATGATGGNNGATTGA TGAATGATGTGGGGTTAG");
+    char **output = my_str_to_word_array(input, " ");
+    char **codon = get_codon(output);
+    cr_assert_eq(strcmp(codon[0], "ATGTANTATANNGAT"), 0);
+    cr_assert_eq(strcmp(codon[1], "ATGGNNGAT"), 0);
+    cr_assert_eq(strcmp(codon[2], "ATGTGGGGT"), 0);
+}
+
+Test(get_amino, test_if_get_amino_works)
+{
+    char *input = strdup("ATGTAACATATGNNNGATTAA ATGTTTTANGATTGA TGAATGATGTGGTACGGTTAG");
+    char **output = my_str_to_word_array(input, " ");
+    char **codon = get_codon(output);
+    char **amino = get_amino(codon);
+    cr_assert_eq(strcmp(amino[0], "MXD"), 0);
+    cr_assert_eq(strcmp(amino[1], "MFXD"), 0);
+    cr_assert_eq(strcmp(amino[2], "MWYG"), 0);
 }

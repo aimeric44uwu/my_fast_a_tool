@@ -19,15 +19,15 @@ static void parse_between(char *codon, char *content, int start, int end)
     free(buffer);
 }
 
-static int is_a_start(int start, char *content, int j)
+static int is_a_start(int start, char *content, int j, char *full)
 {
     if (strncmp(content, "ATG", 3) == 0 &&
         (strncmp(&content[1], "TAA", 3) != 0 &&
         strncmp(&content[1], "TAG", 3) != 0 &&
         strncmp(&content[1], "TGA", 3) != 0) &&
-        (strncmp(&content[2], "TAA", 3) != 0 &&
-        strncmp(&content[2], "TAG", 3) != 0 &&
-        strncmp(&content[2], "TGA", 3) != 0)) {
+        (strncmp(&content[3], "TAA", 3) != 0 &&
+        strncmp(&content[3], "TAG", 3) != 0 &&
+        strncmp(&content[3], "TGA", 3) != 0)) {
             start = j;
     }
     return start;
@@ -49,9 +49,12 @@ static int get_codon_ptwo(char *content, char **codon, int count)
     int end = -1;
     int oldend = 0;
 
-    for (int j = 0; content[j] != '\0'; j++) {
+    for (int j = 0; content[j] != '\0'; j ++) {
         oldend = end;
-        start = is_a_start(start, &content[j], j);
+        int oldstart = start;
+        start = is_a_start(start, &content[j], j, content);
+        if (start != oldstart && start != -1)
+            j += 2;
         end = is_an_end(end, &content[j], j);
         if (end != oldend && end != -1 && start != -1 && (end - start) > 5) {
             codon[count] = new_array(end - start);

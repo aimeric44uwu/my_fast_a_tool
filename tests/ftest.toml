@@ -241,7 +241,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command 6 < example.fasta"
 command = "./FASTAtools 6 < tests/example.fasta"
-expected.stdout = 'ML\nML\nML\nMLPLCL\nMLPR\nMXPXXL\nMXQXXST\nMXRXRXLXRXGXIXXRSNL\nMXRXXLRGITDQIC\nMXYXNXXAIY'
+expected.stdout = 'ML\nML\nML\nMLPLCL\nMLPR\nMPXL\nMQXST\nMRRLRGIXRSNL\nMRXLRGITDQIC\nMYNXAIY'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
@@ -257,7 +257,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command 6 < example_three.fasta"
 command = "./FASTAtools 6 < tests/example_three.fasta"
-expected.stdout = 'MCS\nMPSGR\nMXVXKXRXHXSXFXVXVXRXDXTXPXXFVP'
+expected.stdout = 'MCS\nMPSGR\nMVKRHSFVVRDTPXFVP'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]

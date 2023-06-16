@@ -24,10 +24,10 @@ $(BINNAME):
 	fi
 
 clean:
-	rm -f *.gcno
-	rm -f *.gcda
-	rm -f *.o
-	rm -f *.gcov
+	@rm -f *.gcno
+	@rm -f *.gcda
+	@rm -f *.o
+	@rm -f *.gcov
 
 run: $(BINNAME)
 	./$(BINNAME)
@@ -37,5 +37,15 @@ fclean: clean
 	@if [ ! -f $(BINNAME) ]; then \
 		echo -e "\033[92m\nFclean succesfully done\n\033[0m" ; \
 	fi
+
+compile_run:
+	@rm -f $(BINNAME)
+	@make
+	@make run
+	@rm -f *.gcno
+	@rm -f *.gcda
+	@rm -f *.o
+	@rm -f *.gcov
+	@rm -f $(BINNAME)
 
 re: fclean all

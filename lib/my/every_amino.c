@@ -9,12 +9,11 @@
 
 static void every_amino_pfour(char *ln, char *aminolist, int i)
 {
-
     if (strncmp(&ln[i], "TGG", 3) == 0)
         strcat(aminolist, "W");
     if (strncmp(&ln[i], "TAT", 3) == 0 || strncmp(&ln[i], "TAC", 3) == 0)
         strcat(aminolist, "Y");
-    if (strstr(&ln[i], "N") != NULL)
+    if (ln[i] == 'N' || ln[i + 1] == 'N' || ln[i + 2] == 'N')
         strcat(aminolist, "X");
 }
 
