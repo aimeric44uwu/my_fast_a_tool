@@ -20,6 +20,7 @@ SRC		=	flag_four.c \
 			remove_duplicate.c \
 			my_max.c \
 			my_malloc.c \
+			flag_seven.c \
 			flag_three.c \
 			flag_one.c \
 			parse_fasta_content.c \

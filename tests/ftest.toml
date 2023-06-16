@@ -7,6 +7,62 @@ expected.exit_code = 84
 [[test]]
 
 [[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°1"
+command = "./FASTAtools 1 2 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°2"
+command = "./FASTAtools 2 3 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°3"
+command = "./FASTAtools 3 2 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°4"
+command = "./FASTAtools 5 2 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°5"
+command = "./FASTAtools 6 2 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°6"
+command = "./FASTAtools 7 2 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
+name = "execute the bin with random args to test the error handling but only check the return code n°7"
+command = "./FASTAtools 8 < tests/example_two.fasta"
+expected.stdout = '--skip'
+expected.stderr = ""
+expected.exit_code = 84
+[[test]]
+
+[[test]]
 name = "execute the bin with no args"
 command = "./FASTAtools"
 expected.stdout = 'Wrong arguments given'
@@ -116,4 +172,20 @@ command = "./FASTAtools 6 < tests/example_two.fasta"
 expected.stdout = 'ME\nML\nMQS'
 expected.stderr = ""
 expected.exit_code = 0
+[[test]]
+
+[[test]]
+name = "execute the bin with command  7 < example_two.fasta"
+command = "./FASTAtools 7 < tests/example_two.fasta"
+expected.stdout = 'Alignment score: -22'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
+[[test]]
+name = "execute the bin with command  7 < example.fasta"
+command = "./FASTAtools 7 < tests/example.fasta"
+expected.stdout = ''
+expected.stderr = ""
+expected.exit_code = 84
 [[test]]

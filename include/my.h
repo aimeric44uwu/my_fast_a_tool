@@ -25,6 +25,7 @@ typedef struct my_func_args_s {
     bool flag_four;
     bool flag_five;
     bool flag_six;
+    bool flag_seven;
     int nb_kmer;
     bool is_trash;
 } my_func_args_t;
@@ -32,6 +33,17 @@ typedef struct my_func_args_s {
 typedef struct my_fasta_s {
     my_func_args_t args;
 } my_fasta_t;
+
+typedef struct needlemanwunsch_s {
+    int score_param;
+    int gap;
+    int mismatch;
+    int **matrix;
+    int score;
+    int maxscore;
+    int i;
+    int j;
+} needlemanwunsch_t;
 
 int print_help(void);
 int parse_arg(int ac, char **av, my_func_args_t *args);
@@ -56,3 +68,4 @@ int flag_five(my_fasta_t *fastastruct);
 char **get_codon(char **content);
 int flag_six(my_fasta_t *fastastruct);
 char *every_amino(char *ln);
+int flag_seven(my_fasta_t *fastastruct);
