@@ -12,9 +12,8 @@ static void parse_between(char *codon, char *content, int start, int end)
     char *buffer = new_array(end - start);
     int count = 0;
 
-    for (int i = start; i < end; i++) {
+    for (int i = start; i < end; i++)
         buffer[count++] = content[i];
-        }
     buffer[count] = '\0';
     strcpy(codon, buffer);
     free(buffer);

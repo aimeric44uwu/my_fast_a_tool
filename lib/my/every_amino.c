@@ -14,6 +14,8 @@ static void every_amino_pfour(char *ln, char *aminolist, int i)
         strcat(aminolist, "W");
     if (strncmp(&ln[i], "TAT", 3) == 0 || strncmp(&ln[i], "TAC", 3) == 0)
         strcat(aminolist, "Y");
+    if (strstr(&ln[i], "N") != NULL)
+        strcat(aminolist, "X");
 }
 
 static void every_amino_pthree(char *ln, char *aminolist, int i)

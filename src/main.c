@@ -17,5 +17,6 @@ int main(int ac, char **av)
         exit (0);
     if (exec_flags(fasta) != 0)
         exit(84);
+    free(fasta);
     return (0);
 }
