@@ -36,27 +36,17 @@ static int my_char_is_alpha(char const chr)
     return 0;
 }
 
-static void parse_my_input(char const *input, char *output, int i)
-{
-    if (input[i - 1] != '\0')
-        if (my_char_is_alpha(input[i - 1]) != 1 )
-            output[i] = my_chrcapitalize(input[i]);
-        else
-            output[i] = input[i];
-    else
-        output[i] = my_chrcapitalize(input[i]);
-}
-
 char *my_strcapitalize_synthesis(char *str)
 {
     int size = my_strlen(str);
-    char *result = malloc(sizeof(char) * (size + 1));
 
-    if (result == NULL || str == NULL || size == 0)
+    if (size == 0)
         return NULL;
+    str[0] = my_chrcapitalize(str[0]);
     for (int i = 0; i < size || str[i] != '\0'; i++)
-        parse_my_input(str, result, i);
-    result[size] = '\0';
-    str = result;
+        if (str[i - 1] != '\0' && my_char_is_alpha(str[i - 1]) != 1)
+            str[i] = my_chrcapitalize(str[i]);
+        else
+            str[i] = str[i];
     return str;
 }
