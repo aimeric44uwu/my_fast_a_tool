@@ -52,6 +52,8 @@ char *my_strcapitalize_synthesis(char *str)
     int size = my_strlen(str);
     char *result = malloc(sizeof(char) * (size + 1));
 
+    if (result == NULL || str == NULL || size == 0)
+        return NULL;
     for (int i = 0; i < size || str[i] != '\0'; i++)
         parse_my_input(str, result, i);
     return result;
