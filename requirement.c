@@ -56,5 +56,6 @@ char *my_strcapitalize_synthesis(char *str)
         return NULL;
     for (int i = 0; i < size || str[i] != '\0'; i++)
         parse_my_input(str, result, i);
+    result[size] = '\0';
     return result;
 }
