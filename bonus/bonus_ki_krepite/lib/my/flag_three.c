@@ -7,7 +7,7 @@
 
 #include "../../include/my.h"
 
-void complement(char *str)
+static void complement(char *str)
 {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == 'A') {

@@ -7,7 +7,7 @@
 
 #include "../../include/my.h"
 
-void replace_t_by_u(char *content)
+static void replace_t_by_u(char *content)
 {
     for (int i = 0; content[i] != '\0'; i++) {
         if (content[i] == '>')

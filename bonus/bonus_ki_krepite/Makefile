@@ -10,7 +10,7 @@ MAINFILE	=	src/main.c			\
 				src/parse_arg.c   	\
 				src/exec_flags.c	\
 
-BINNAME		=	FASTAtools
+BINNAME		=	FASTAtools_bonus
 
 LIBNAME		=	lib/my/libmy.a
 
@@ -50,26 +50,13 @@ fclean: clean
 		echo -e "\033[92m\nFclean succesfully done\n\033[0m" ; \
 	fi
 
+bonus_to_test:
+	./$(BINNAME) 7 < tests/example_two.fasta
+
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all ./$(BINNAME)
 
 ftests:
 	./tests/tester.sh
-
-unit_tests:
-	@make -C tests/ -w
-
-exec_unit_tests:
-	@make -C tests/ run
-
-clean_tests:
-	@make -C tests/ clean
-
-fclean_tests:
-	@make -C tests/ fclean
-
-re_tests: exec_unit_tests fclean_tests
-
-all_tests: unit_tests ftests
 
 re: fclean all
