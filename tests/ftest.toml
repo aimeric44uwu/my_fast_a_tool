@@ -7,6 +7,14 @@ expected.exit_code = 84
 [[test]]
 
 [[test]]
+name = "execute the bin with -h flag"
+command = "./FASTAtools -h"
+expected.stdout = 'USAGE\n\t./FASTAtools option\n\nDESCRIPTION\n\toption 1: read FASTA from the standard input, write the DNA sequences to the\n\t\tstandard output\n\toption 2: read FASTA from the standard input, write the RNA sequences to the\n\t\tstandard output\n\toption 3: read FASTA from the standard input, write the reverse complement\n\t\tto the standard output\n\toption 4: read FASTA from the standard input, write the k-mer list to the\n\t\tstandard output\n\toption 5: read FASTA from the standard input, write the coding sequences\n\t\tlist to the standard output\n\toption 6: read FASTA from the standard input, write the amino acids list to\n\t\tthe standard output\n\toption 7: read FASTA from the standard input containing exactly 2 squences,\n\t\talign them and write the result to the standard output\n\tk: size of the k-mersfor option 4\n'
+expected.stderr = ""
+expected.exit_code = 0
+[[test]]
+
+[[test]]
 name = "execute the bin with random args to test the error handling but only check the return code n°1"
 command = "./FASTAtools 1 2 < tests/example_two.fasta"
 expected.stdout = '--skip'

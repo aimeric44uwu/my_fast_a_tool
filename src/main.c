@@ -13,6 +13,8 @@ int main(int ac, char **av)
 
     if (parse_arg(ac, av, &fasta->args) != 0)
         exit(84);
+    if (fasta->args.flag_h == true)
+        exit (0);
     if (exec_flags(fasta) != 0)
         exit(84);
     return (0);
