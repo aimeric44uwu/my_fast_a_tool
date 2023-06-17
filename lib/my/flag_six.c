@@ -7,6 +7,32 @@
 
 #include "../../include/my.h"
 
+char *complement_two(char *str)
+{
+    char *tmp = new_array(strlen(str));
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == 'A') {
+            tmp[i] = 'T';
+            continue;
+        }
+        if (str[i] == 'T') {
+            tmp[i] = 'A';
+            continue;
+        }
+        if (str[i] == 'C') {
+            tmp[i] = 'G';
+            continue;
+        }
+        if (str[i] == 'G') {
+            tmp[i] = 'C';
+            continue;
+        }
+    }
+    free(str);
+    return tmp;
+}
+
 char **get_amino(char **content)
 {
     char **tmp = new_double_array(my_arrlen(content) + 1);
@@ -38,7 +64,7 @@ char **get_full_file(char **str_input)
         if (str_input[i][0] == '>')
             continue;
         full_file[count] = new_array(strlen(str_input[i]));
-        strcpy(full_file[count++], revstr(str_input[i]));
+        strcpy(full_file[count++], complement_two(revstr(str_input[i])));
     }
     full_file[count] = NULL;
     return full_file;
