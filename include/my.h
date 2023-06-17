@@ -45,6 +45,18 @@ typedef struct needlemanwunsch_s {
     int j;
 } needlemanwunsch_t;
 
+typedef struct codon_s {
+    int j;
+    int k;
+    int start;
+    int end;
+    int count;
+    bool found;
+    char *actualcod;
+    char *codon;
+} codon_t;
+
+
 int print_help(void);
 int parse_arg(int ac, char **av, my_func_args_t *args);
 bool my_str_is_num(char *str);
@@ -69,3 +81,4 @@ char **get_codon(char **content);
 int flag_six(my_fasta_t *fastastruct);
 char *every_amino(char *ln);
 int flag_seven(my_fasta_t *fastastruct);
+int get_codon_ptwo_postwo(char *content, char **codon, int count);

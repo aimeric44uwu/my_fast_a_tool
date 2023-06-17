@@ -88,6 +88,6 @@ int flag_seven(my_fasta_t *fastastruct)
     else
         score = needleman_wunsch(dna[1], dna[0], nw);
     free(nw);
-    printf("Alignment score: %d\n", score);
+    printf("%d\n", score);
     return 0;
 }

@@ -8,6 +8,7 @@
 SRC		=	flag_four.c \
 			flag_two.c \
 			print_help.c \
+			get_codon_util.c \
 			my_str_to_word_array.c \
 			my_revstr.c \
 			flag_six.c \
@@ -19,6 +20,7 @@ SRC		=	flag_four.c \
 			flag_five_utils.c \
 			remove_duplicate.c \
 			my_max.c \
+			get_codon_util_two.c \
 			my_malloc.c \
 			flag_seven.c \
 			flag_three.c \

@@ -258,11 +258,14 @@ Test(get_codon, test_if_get_codon_works)
 
 Test(get_amino, test_if_get_amino_works)
 {
-    char *input = strdup("ATGTAACATATGNNNGATTAA ATGTTTTANGATTGA TGAATGATGTGGTACGGTTAG");
+    char *input = strdup("ATGTAACATATGANNGATTAA ATGTTTTANGATTGA TGAATGATGTGGTACGGTTAG");
     char **output = my_str_to_word_array(input, " ");
     char **codon = get_codon(output);
     char **amino = get_amino(codon);
     cr_assert_eq(strcmp(amino[0], "MXD"), 0);
     cr_assert_eq(strcmp(amino[1], "MFXD"), 0);
     cr_assert_eq(strcmp(amino[2], "MWYG"), 0);
+
 }
+
+

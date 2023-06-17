@@ -217,7 +217,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command  5 < example.fasta"
 command = "./FASTAtools 5 < tests/example.fasta"
-expected.stdout = 'ATGCTCCC\nATGCCGCNTCTACT\nATGCGGCGGCTACGGGGTATTANCCGATCAAATCTGC\nATGCTCCC\nATGCAGTNGAGTACACT\nATGCTGCCACGC\nATGCTCCC\nATGTATAATNCCGCTATCTACT\nATGCTGCCACTGTGTCTTTC\nATGCGGCGNCTACGGGGTATTACCGATCAAATCTGC'
+expected.stdout = 'ATGCTGCCACGC\nATGCGGCGNCTACGGGGTATTACCGATCAAATCTGC'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
@@ -233,7 +233,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command 5 < example_three.fasta"
 command = "./FASTAtools 5 < tests/example_three.fasta"
-expected.stdout = 'ATGCCCTCAGGAAGATA\nATGTGCTCC\nATGGTAAAGAGACACTCTTTTGTGGTGCGAGACACCCCGNNNTTCGTCCCCTA'
+expected.stdout = 'ATGAAA\nATGTGCTCC'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
@@ -241,7 +241,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command 6 < example.fasta"
 command = "./FASTAtools 6 < tests/example.fasta"
-expected.stdout = 'ML\nML\nML\nMLPLCL\nMLPR\nMPXL\nMQXST\nMRRLRGIXRSNL\nMRXLRGITDQIC\nMYNXAIY'
+expected.stdout = 'MLPR\nMRXLRGITDQIC'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
@@ -257,7 +257,7 @@ expected.exit_code = 0
 [[test]]
 name = "execute the bin with command 6 < example_three.fasta"
 command = "./FASTAtools 6 < tests/example_three.fasta"
-expected.stdout = 'MCS\nMPSGR\nMVKRHSFVVRDTPXFVP'
+expected.stdout = 'MCS\nMK'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
@@ -273,7 +273,7 @@ expected.exit_code = 84
 [[test]]
 name = "execute the bin with command 7 < example_two.fasta"
 command = "./FASTAtools 7 < tests/example_two.fasta"
-expected.stdout = 'Alignment score: -22'
+expected.stdout = '-22'
 expected.stderr = ""
 expected.exit_code = 0
 [[test]]
