@@ -82,3 +82,5 @@ int flag_six(my_fasta_t *fastastruct);
 char *every_amino(char *ln);
 int flag_seven(my_fasta_t *fastastruct);
 int get_codon_ptwo_postwo(char *content, char **codon, int count);
+int my_max(int a, int b);
+char **get_full_file(char **str_input);

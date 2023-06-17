@@ -88,5 +88,7 @@ int flag_seven(my_fasta_t *fastastruct)
         score = needleman_wunsch(dna[1], dna[0], nw);
     free(nw);
     printf("%d\n", score);
+    free(dna);
+    free(content);
     return 0;
 }

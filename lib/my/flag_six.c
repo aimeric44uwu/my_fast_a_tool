@@ -21,13 +21,27 @@ char **get_amino(char **content)
     return tmp;
 }
 
-char *get_full_file(char *str_input)
+char **get_full_file(char **str_input)
 {
-    char *fullfile = malloc(sizeof(char) * strlen(str_input) * 2 + 1);
+    int size = my_arrlen(str_input);
+    char **full_file = new_double_array(size * 2 + 1);
+    int count = 0;
 
-    strcpy(fullfile, str_input);
-    strcat(fullfile, revstr(str_input));
-    return fullfile;
+    for (int i = 0; str_input[i] != NULL; i++) {
+        if (str_input[i][0] == '>')
+            continue;
+        full_file[count] = new_array(strlen(str_input[i]));
+        strcpy(full_file[count++], str_input[i]);
+    }
+
+    for (int i = 0 ; str_input[i] != NULL; i++) {
+        if (str_input[i][0] == '>')
+            continue;
+        full_file[count] = new_array(strlen(str_input[i]));
+        strcpy(full_file[count++], revstr(str_input[i]));
+    }
+    full_file[count] = NULL;
+    return full_file;
 }
 
 int flag_six(my_fasta_t *fastastruct)
@@ -35,18 +49,21 @@ int flag_six(my_fasta_t *fastastruct)
     char **content = NULL;
     char **codon = NULL;
     char **amino = NULL;
-    char *fullfile = NULL;
+    char **fullfile = NULL;
 
     if (fastastruct->args.inputfile == NULL)
         return (error_wrong_args());
-    fullfile = get_full_file(fastastruct->args.inputfile);
-    content = parse_fasta_content(fullfile);
+    content = parse_fasta_content(fastastruct->args.inputfile);
     if (content == NULL)
         return 84;
-    codon = get_codon(content);
+    fullfile = get_full_file(content);
+    codon = get_codon(fullfile);
     amino = get_amino(codon);
     sort_my_array(amino);
     for (int i = 0; amino[i] != NULL; i++)
         printf("%s\n", amino[i]);
+    free(content);
+    free(codon);
+    free(amino);
     return 0;
 }
