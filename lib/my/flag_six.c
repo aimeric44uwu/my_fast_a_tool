@@ -11,24 +11,21 @@ char *complement_two(char *str)
 {
     char *tmp = new_array(strlen(str));
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == 'A') {
+    for (int i = 0; str[i] != '\0'; i++)
+        switch (str[i]) {
+        case 'A':
             tmp[i] = 'T';
-            continue;
-        }
-        if (str[i] == 'T') {
+            break;
+        case 'T':
             tmp[i] = 'A';
-            continue;
-        }
-        if (str[i] == 'C') {
+            break;
+        case 'C':
             tmp[i] = 'G';
-            continue;
-        }
-        if (str[i] == 'G') {
+            break;
+        case 'G':
             tmp[i] = 'C';
-            continue;
+            break;
         }
-    }
     free(str);
     return tmp;
 }
@@ -77,8 +74,6 @@ int flag_six(my_fasta_t *fastastruct)
     char **amino = NULL;
     char **fullfile = NULL;
 
-    if (fastastruct->args.inputfile == NULL)
-        return (error_wrong_args());
     content = parse_fasta_content(fastastruct->args.inputfile);
     if (content == NULL)
         return 84;

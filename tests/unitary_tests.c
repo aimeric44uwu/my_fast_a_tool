@@ -265,7 +265,6 @@ Test(get_amino, test_if_get_amino_works)
     cr_assert_eq(strcmp(amino[0], "MXD"), 0);
     cr_assert_eq(strcmp(amino[1], "MFXD"), 0);
     cr_assert_eq(strcmp(amino[2], "MWYG"), 0);
-
 }
 
 

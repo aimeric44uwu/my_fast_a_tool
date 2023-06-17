@@ -20,6 +20,7 @@ int flag_five(my_fasta_t *fastastruct)
         return 84;
     fullfile = get_full_file(content);
     codon = get_codon(fullfile);
+    sort_my_array(codon);
     for (int i = 0; codon[i] != NULL; i++) {
         printf("%s\n", codon[i]);
     }
