@@ -8,19 +8,20 @@
 SRC		=	flag_four.c \
 			flag_two.c \
 			print_help.c \
+			get_codon_util.c \
 			my_str_to_word_array.c \
 			my_revstr.c \
 			flag_six.c \
+			free_matrix.c \
 			get_input_file_content.c \
 			flag_five.c \
 			my_str_is_a_number.c \
 			error_occured.c \
 			sort_my_array.c \
-			my_min_max.c \
 			flag_five_utils.c \
 			remove_duplicate.c \
-			matrix_util.c \
-			get_codon.c \
+			my_max.c \
+			get_codon_util_two.c \
 			my_malloc.c \
 			flag_seven.c \
 			flag_three.c \

@@ -84,3 +84,5 @@ int my_max(int i , int j);
 int my_min(int i , int j);
 void print_matrix(int **matrix, char *seq1, char *seq2);
 void free_matrix(int **matrix);
+int get_codon_ptwo_postwo(char *content, char **codon, int count);
+char **get_full_file(char **str_input);

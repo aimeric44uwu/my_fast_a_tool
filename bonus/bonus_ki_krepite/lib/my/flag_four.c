@@ -28,7 +28,7 @@ static int count_kmer(char **content, int nb_kmer)
     return count;
 }
 
-static char** get_kmer(char **content, int nb_kmer)
+char **get_kmer(char **content, int nb_kmer)
 {
     char **kmer = new_double_array(count_kmer(content, nb_kmer) + 1);
     int count = 0;
