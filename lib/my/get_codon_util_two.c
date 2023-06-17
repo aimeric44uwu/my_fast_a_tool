@@ -14,7 +14,7 @@ static void parse_between(char *codon, char *content, codon_t *codon_struct)
     int end = codon_struct->end;
 
     end = end - ((end - codon_struct->start) % 3);
-    for (int i = codon_struct->start; i < end; i++)
+    for (int i = codon_struct->start; i < codon_struct->end; i++)
         buffer[count++] = content[i];
     buffer[count] = '\0';
     strcpy(codon, buffer);
@@ -73,6 +73,7 @@ int get_codon_ptwo_postwo(char *content, char **codon, int count)
     codon_struct->found = false;
     codon_struct->start = -1;
     codon_struct->end = -1;
+    codon_struct->k = 0;
     codon_struct->count = count;
     codon_struct->j = 0;
 
@@ -81,7 +82,5 @@ int get_codon_ptwo_postwo(char *content, char **codon, int count)
         is_an_end(content, codon_struct);
         one_found(codon_struct, content, codon);
     }
-    count_result = codon_struct->count;
-    free(codon_struct);
-    return count_result;
+    return codon_struct->count;
 }

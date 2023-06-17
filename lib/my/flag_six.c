@@ -7,27 +7,26 @@
 
 #include "../../include/my.h"
 
-char *complement_two(char *str)
+void complement_two(char *str)
 {
-    char *tmp = new_array(strlen(str));
-
-    for (int i = 0; str[i] != '\0'; i++)
-        switch (str[i]) {
-        case 'A':
-            tmp[i] = 'T';
-            break;
-        case 'T':
-            tmp[i] = 'A';
-            break;
-        case 'C':
-            tmp[i] = 'G';
-            break;
-        case 'G':
-            tmp[i] = 'C';
-            break;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == 'A') {
+            str[i] = 'T';
+            continue;
         }
-    free(str);
-    return tmp;
+        if (str[i] == 'T') {
+            str[i] = 'A';
+            continue;
+        }
+        if (str[i] == 'C') {
+            str[i] = 'G';
+            continue;
+        }
+        if (str[i] == 'G') {
+            str[i] = 'C';
+            continue;
+        }
+    }
 }
 
 char **get_amino(char **content)
@@ -55,13 +54,10 @@ char **get_full_file(char **str_input)
             continue;
         full_file[count] = new_array(strlen(str_input[i]));
         strcpy(full_file[count++], str_input[i]);
-    }
-
-    for (int i = 0 ; str_input[i] != NULL; i++) {
-        if (str_input[i][0] == '>')
-            continue;
         full_file[count] = new_array(strlen(str_input[i]));
-        strcpy(full_file[count++], complement_two(revstr(str_input[i])));
+        full_file[count] = revstr(str_input[i]);
+        complement_two(full_file[count]);
+        strcpy(full_file[count++], full_file[count]);
     }
     full_file[count] = NULL;
     return full_file;
