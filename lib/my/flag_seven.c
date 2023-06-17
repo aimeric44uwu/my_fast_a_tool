@@ -10,16 +10,15 @@
 int update_needleman_matrix(char *seq1, char *seq2,
 needlemanwunsch_t *nw)
 {
+    int diag = nw->matrix[nw->j - 1][nw->i - 1] + nw->mismatch;
+    int left = nw->matrix[nw->j - 1][nw->i] + nw->gap;
+    int up = nw->matrix[nw->j][nw->i - 1]+ nw->gap;
+    int best = diag;
+
     if (seq1[nw->i - 1] == seq2[nw->j - 1])
-        nw->score = nw->score_param;
-    else
-        nw->score = nw->mismatch;
-    nw->maxscore = nw->matrix[nw->i - 1][nw->j - 1] + nw->score;
-    if (nw->maxscore < nw->matrix[nw->i - 1][nw->j] + nw->gap)
-        nw->maxscore = nw->matrix[nw->i - 1][nw->j] + nw->gap;
-    if (nw->maxscore < nw->matrix[nw->i][nw->j - 1] + nw->gap)
-        nw->maxscore = nw->matrix[nw->i][nw->j - 1] + nw->gap;
-    return nw->maxscore;
+        best = nw->matrix[nw->j - 1][nw->i - 1] + nw->score_param;
+    best = my_max(my_max(best, left), up);
+    return best;
 }
 
 int needleman_wunsch(char *seq1, char *seq2, needlemanwunsch_t *nw)
@@ -35,9 +34,9 @@ int needleman_wunsch(char *seq1, char *seq2, needlemanwunsch_t *nw)
         nw->matrix[0][i] = nw->gap * i;
     for (int j = 0; j <= len2; j++)
         nw->matrix[j][0] = nw->gap * j;
-    for (nw->i = 1; nw->i <= len2; nw->i++)
-        for (nw->j = 1; nw->j <= len1; nw->j++)
-            nw->matrix[nw->i][nw->j] =
+    for (nw->j = 1; nw->j <= len2; nw->j++)
+        for (nw->i = 1; nw->i <= len1; nw->i++)
+            nw->matrix[nw->j][nw->i] =
                 update_needleman_matrix(seq1, seq2, nw);
     result = nw->matrix[len2][len1];
     for (int i = 0; i <= len2; i++)
@@ -83,7 +82,7 @@ int flag_seven(my_fasta_t *fastastruct)
     init_nw(nw);
     if (get_dna(content, dna) != 0)
         return 84;
-    if (strlen(dna[0]) > strlen(dna[1]))
+    if (strlen(dna[0]) < strlen(dna[1]))
         score = needleman_wunsch(dna[0], dna[1], nw);
     else
         score = needleman_wunsch(dna[1], dna[0], nw);

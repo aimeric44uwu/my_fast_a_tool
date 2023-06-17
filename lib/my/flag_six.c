@@ -21,15 +21,26 @@ char **get_amino(char **content)
     return tmp;
 }
 
+char *get_full_file(char *str_input)
+{
+    char *fullfile = malloc(sizeof(char) * strlen(str_input) * 2 + 1);
+
+    strcpy(fullfile, str_input);
+    strcat(fullfile, revstr(str_input));
+    return fullfile;
+}
+
 int flag_six(my_fasta_t *fastastruct)
 {
     char **content = NULL;
     char **codon = NULL;
     char **amino = NULL;
+    char *fullfile = NULL;
 
     if (fastastruct->args.inputfile == NULL)
         return (error_wrong_args());
-    content = parse_fasta_content(fastastruct->args.inputfile);
+    fullfile = get_full_file(fastastruct->args.inputfile);
+    content = parse_fasta_content(fullfile);
     if (content == NULL)
         return 84;
     codon = get_codon(content);

@@ -20,6 +20,7 @@ SRC		=	flag_four.c \
 			flag_five_utils.c \
 			remove_duplicate.c \
 			matrix_util.c \
+			get_codon.c \
 			my_malloc.c \
 			flag_seven.c \
 			flag_three.c \
